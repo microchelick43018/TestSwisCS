@@ -73,18 +73,18 @@ namespace TestSwisCS
                 }
             }
         }
-        private int CountLine(List<int> line, int [,] matrix, Dictionary<int, List<int>> payTable)
+        private int CountLine(List<int> line, int[,] matrix, Dictionary<int, List<int>> payTable)
         {
             int i = 0;// положение на линии
             int k = 1;// количество идущих подряд
             int cellValue;// значение считаемой ячейки
-            while(i < 5 && matrix[line[i], i] == 12)//цикл делает так, чтобы определить, какое значение(цифру) ячейки мы  будем считать, а т.к. 12 нет в таблице
-                //выплат, то мы идём по линии пока мы не встретим другое число, но заодно и будем прибавлять k
+            while (i < 5 && matrix[line[i], i] == 12)//цикл делает так, чтобы определить, какое значение(цифру) ячейки мы  будем считать, а т.к. 12 нет в таблице
+                                                     //выплат, то мы идём по линии пока мы не встретим другое число, но заодно и будем прибавлять k
             {
                 k++;
                 i++;
             }
-            
+
             if (i == 5)// мы дошли до конца линии, то получили линию джокеров
             {
                 return 0;
@@ -124,7 +124,7 @@ namespace TestSwisCS
     }
     class Program
     {
-       
+
         static void Main(string[] args)
         {
             const int QUANTITYOFGAMES = 10000000;
@@ -138,9 +138,9 @@ namespace TestSwisCS
                 Win += temp;
             }
             Console.WriteLine("Amount win = " + Win);
-            Console.WriteLine($"RTP = {(double) Win / QUANTITYOFGAMES * 100 / 5}%");
+            Console.WriteLine($"RTP = {(double)Win / QUANTITYOFGAMES * 100}%");
             Console.WriteLine($"Quantity of hits = {hits}");
-            Console.WriteLine($"HitRate = {(double) QUANTITYOFGAMES / hits}");
+            Console.WriteLine($"HitRate = {(double)QUANTITYOFGAMES / hits}");
             Console.ReadKey();
         }
     }
